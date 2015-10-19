@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<title>AngularJS Binding</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script type="text/javascript" src="myapp.js" ></script>
+</head>
+
+<body>
+	<div ng-controller="DoubleController as double">
+		Two times <input type="text" ng-model="num"> equals to {{ double(num) }}
+	</div>
+	<div ng-controller="GreetingController as greets" >
+		{{greeting}}
+		<h1>Binding {{ message }}</h1>
+		<input type="text" ng-model="message" ng-init="message = 'hello'">
+		<p>{{ message }}</p>
+		<p>{{ message + message}}</p>
+		<p>{{ message === 'hello'}}</p>
+		<p>{{ 1 + 2 }}</p>
+		<p ng-bind="::message === 'hello'"></p>
+	</div>
+</body>
+
+</html>
