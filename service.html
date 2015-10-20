@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myServiceModule">
+
+<head>
+	<title>AngularJS Binding</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script type="text/javascript" src="service.js" ></script>
+	
+	<meta charset="utf-8" >
+</head>
+
+<body>
+	<div id="simple" ng-controller="MyController">
+		<p>Let's try this simple notify service, injected into the controller...</p>
+		<input ng-init="message='test'" ng-model="message">
+		<button ng-click="callNotify(message);">NOTIFY</button>
+		<p>(you have to click 3 times to see an alert)</p>
+	</div>
+</body>
+
+</html>

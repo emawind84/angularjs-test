@@ -5,12 +5,15 @@
 	<title>AngularJS Binding</title>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
 	<script type="text/javascript" src="myapp.js" ></script>
+	
+	<meta charset="utf-8" >
 </head>
 
 <body>
 	<div ng-controller="DoubleController as double">
 		Two times <input type="text" ng-model="num"> equals to {{ double(num) }}
 	</div>
+	<hr>
 	<div ng-controller="GreetingController as greets" >
 		{{greeting}}
 		<h1>Binding {{ message }}</h1>
@@ -20,6 +23,42 @@
 		<p>{{ message === 'hello'}}</p>
 		<p>{{ 1 + 2 }}</p>
 		<p ng-bind="::message === 'hello'"></p>
+	</div>
+	<hr>
+	<div ng-controller="SpicyController">
+		<fieldset>
+			<button ng-click="clickme1()">click me 1</button>
+		</fieldset>
+		<fieldset>
+			<button ng-click="clickme2()">click me 1</button>
+		</fieldset>
+		<fieldset>
+			<input ng-model="customSpice">
+			<button ng-click="spicy(customSpice)">Custom Spice</button>
+		</fieldset>
+		<p>The food is {{spice}} spicy!</p>
+	</div>
+	<hr>
+	<div class="spicy">
+		<div ng-controller="MainController">
+			<p>Good {{timeOfDay}}, {{name}}!</p>
+	
+			<div ng-controller="ChildController">
+				<p>Good {{timeOfDay}}, {{name}}!</p>
+	
+				<div ng-controller="GrandChildController">
+					<p>Good {{timeOfDay}}, {{name}}!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div ng-controller="FormTestController as formtest">
+		<p>{{formtest.message}}</p>
+		<form ng-submit="formtest.updateMessage(formtest.newMessage)">
+			<input ng-model="formtest.newMessage" type="text">
+			<button type="submit" >Update Message</button>
+		</form>
 	</div>
 </body>
 
