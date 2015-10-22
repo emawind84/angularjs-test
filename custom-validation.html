@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<title>AngularJS Binding</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script type="text/javascript" src="custom-validation.js" ></script>
+	
+	<meta charset="utf-8" >
+</head>
+
+<body>
+	<form name="form" class="" novalidate>
+		<fieldset>
+			Size:
+			<input type="number" ng-model="size" name="size" min="0" max="10" integer>{{size}}<br />
+			<div ng-show="form.size.$error.integer">The value is not an integer</div>
+			<div ng-show="form.size.$error.min || form.size.$error.max">The value must be in range 0 to 10!</div>
+			<br/>{{form.size.$error | json}}
+		</fieldset>
+		
+		<fieldset>
+			Username:
+			<input type="text" ng-model="name" name="name" username >{{usename}}<br />
+			<div ng-show="form.name.$pending.username">Checking if this name is available...</div>
+			<div ng-show="form.name.$error.username">This username is already taken!</div>
+			<br/>{{form.username.$error | json}}
+		</fieldset>
+	</form>
+</body>
+
+</html>
