@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<meta charset="utf-8" >
+</head>
+
+<body>
+	<h1>Performance Timing Test</h1>
+	<div ng-controller="TimingController">
+	{{performance.timing | json}}
+	</div>
+	<script type="text/javascript">
+	(function(){
+		var myapp = angular.module('app', []);
+		myapp.controller('TimingController', ['$window', '$scope', function($window, $scope){
+			$scope.performance = $window.performance;
+		}]);	
+	})();
+	//console.log(performance.timing);
+	</script>
+</body>
+
+</html>
