@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<title>Promise fun</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script src="filters.js"></script>
+</head>
+
+<body ng-app="app">
+	<div ng-controller="PeopleController as ctrl">
+		<input ng-model="search.$" type="text" >
+		<div ng-repeat="p in ctrl.people | filter: search">
+			{{p.name}}
+		</div>
+	</div>
+</body>
+
+</html>

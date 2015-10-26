@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<title>Promise fun</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script src="custom-filter.js"></script>
+</head>
+
+<body ng-app="app">
+	<div ng-controller="TestController">
+		<input ng-model="greeting" type="text" >
+		<div>
+		{{greeting}}<br>
+		{{greeting | reverse}}<br>
+		{{greeting | reverse:true}}<br>
+		</div>
+	</div>
+</body>
+
+</html>
