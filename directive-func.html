@@ -9,9 +9,9 @@
 	<meta charset="utf-8" >
 </head>
 
-<body>
-	<div ng-app="funcs">
-		<div entering leaving>Hover over me for fun times</div>
+<body ng-app="funcs">
+	<div ng-controller="FunCtrl as fun">
+		<div entering="activeClass" onenter="fun.start()" leaving onleave="fun.end()">Hover over me for fun times</div>
 	</div>
 </body>
 
