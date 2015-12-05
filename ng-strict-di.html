@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-strict-di>
+
+<head>
+	<meta charset="utf-8" >
+</head>
+
+<body>
+	<h3>Using Strict Dependency Injection</h3>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+<script>
+(function(){
+	"use strict";
+	
+	angular.module('app', [])
+	.factory('myservice', function(){
+		return "Ciao mamma!";
+	})
+	.run(['myservice', '$log', function(myservice, $log){
+		$log.debug(myservice);
+	}])
+	
+	.factory('willBreak', function($rootScope) {
+		return null;
+		// $rootScope is implicitly injected
+	})
+	.run(['willBreak', function(willBreak) {
+		// Angular will throw when this runs
+	}]);
+	
+})();
+</script>
+	
+</body>
+
+</html>

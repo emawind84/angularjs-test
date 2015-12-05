@@ -15,6 +15,11 @@
 			}
 			return out;
 		};
+	})
+	.filter('uppercase', function(){
+		return function(value){
+			return value.toUpperCase();
+		};
 	});
 	
 	myApp.controller('TestController', ['$scope', function($scope){
