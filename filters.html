@@ -1,3 +1,6 @@
+<!-- 
+https://thinkster.io/a-better-way-to-learn-angularjs/ngfilter
+-->
 <!DOCTYPE html>
 <html ng-app="myApp">
 
@@ -9,7 +12,9 @@
 
 <body ng-app="app">
 	<div ng-controller="PeopleController as ctrl">
+		<!-- For a general search across all attributes, you can simply use $ -->
 		<input ng-model="search.$" type="text" >
+		
 		<div ng-repeat="p in ctrl.people | filter: search">
 			{{p.name}}
 		</div>
